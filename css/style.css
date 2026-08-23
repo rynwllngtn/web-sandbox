@@ -1,0 +1,13 @@
+body {
+    background-color: rgb(30, 31, 34);
+}
+
+#text {
+    font-family: Arial, serif;
+    color: rgb(169, 183, 198);
+    text-indent: 85px;
+}
+
+#code {
+    color: rgb(169, 183, 198);
+}
