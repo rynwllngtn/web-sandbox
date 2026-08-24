@@ -2,6 +2,7 @@ package dev.rynwllngtn.identity.application.service;
 
 import dev.rynwllngtn.identity.application.dto.IdentityRequestDto;
 import dev.rynwllngtn.identity.application.dto.IdentityResponseDto;
+import dev.rynwllngtn.identity.application.exception.ResourceNotFoundException;
 import dev.rynwllngtn.identity.domain.Identity;
 import dev.rynwllngtn.identity.infrastructure.persistence.IdentityRepositoryJpa;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +20,7 @@ public class IdentityService {
     private Identity findByIdOrThrow(UUID uuid) {
         Optional<Identity> identity = identityRepository.findById(uuid);
         return identity.orElseThrow(
-                () -> new RuntimeException("Identity not found!")
+                () -> new ResourceNotFoundException("Identidade não encontrada!")
         );
     }
 
