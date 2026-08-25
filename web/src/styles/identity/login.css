@@ -2,45 +2,49 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 20px;
 }
 
 .main-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    background-color: white;
-    padding: 40px 40px;
-    max-width: 600px;
-    min-width: 400px;
-    border: 1px solid rgb(0, 0, 0);
-    border-radius: 5px;
-    box-shadow: 5px 5px 10px rgb(156, 163, 175);
+    width: 100%;
+    padding: 80px 40px;
+    max-width: 400px;
+    border: 1px solid var(--border-input);
+    border-radius: 12px;
+    background-color: var(--bg-card);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
 }
 
-.main-container h2 {
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 20px;
+.main-container .login-title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.main-container .login-title h1 {
+    font-size: 26px;
+    color: var(--color-primary);
+}
+
+.main-container .login-title span {
+    margin-top: 5px;
+    font-size: 14px;
+    color: var(--text-muted);
 }
 
 .main-container form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    width: 100%;
+    gap: 24px;
 }
 
-.main-container span {
-    display: block;
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 40px;
-    font-size: 14px;
-}
-
-.main-container span a {
-    display: block;
-    text-decoration: none;
-    font-weight: bold;
+.main-container form button {
+    margin-top: 5px;
 }
 
 .input-group {
@@ -50,6 +54,19 @@ body {
 }
 
 .input-group label {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
+    color: var(--text-main);
+}
+
+.main-container .sighup-span {
+    display: block;
+    text-align: center;
+    margin-top: 25px;
+    font-size: 12px;
+    color: var(--text-main);
+}
+
+.main-container .sighup-span a {
+    margin-left: 5px;
 }

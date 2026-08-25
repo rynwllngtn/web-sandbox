@@ -1,3 +1,21 @@
+:root {
+    --color-primary: rgb(21, 65, 45);
+    --color-primary-hover: rgb(26, 80, 56);
+    --color-primary-transparent: rgba(21, 65, 45, 0.15);
+
+    --bg-body: rgb(243, 244, 246);
+    --bg-card: rgb(255, 255, 255);
+
+    --text-main: rgb(31, 41, 55);
+    --text-muted: rgb(107, 114, 128);
+
+    --border-input: rgb(209, 213, 219);
+    --border-input-hover: rgb(156, 163, 175);
+
+    --link-color: rgb(37, 99, 235);
+    --link-hover: rgb(29, 78, 216);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -14,23 +32,59 @@ input, button {
 }
 
 body {
-    background-color: rgb(249, 250, 251);
-    color: rgb(22, 22, 29);
+    background-color: var(--bg-body);
+    color: var(--text-main);
 }
 
 input {
     width: 100%;
-    padding: 10px;
-    border: 1px solid;
-    border-radius: 5px;
-    font-size: 12px;
+    padding: 12px 12px;
+    border: 1px solid var(--border-input);
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: var(--bg-card);
+    transition: all 0.1s ease;
+}
+
+input:hover {
+    border-color: var(--border-input-hover)
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 5px 3px var(--color-primary-transparent);
+    background-color: var(--bg-card);
 }
 
 button {
     width: 100%;
-    padding: 10px;
-    border: 1px solid;
-    border-radius: 5px;
+    padding: 12px;
+    border: none;
+    background-color: var(--color-primary);
+    color: var(--bg-card);
+    border-radius: 6px;
     font-size: 14px;
     cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+    background-color: var(--color-primary-hover);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+a {
+    text-decoration: none;
+    color: var(--link-color);
+    font-weight: bold;
+    transition: color 0.1s ease;
+}
+
+a:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
 }
