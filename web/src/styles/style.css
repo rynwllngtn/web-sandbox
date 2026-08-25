@@ -1,8 +1,36 @@
 * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: Verdana, sans-serif;
-    color: rgb(242, 240, 239);
+}
+
+html, body {
+    height: 100%;
+}
+
+input, button {
+    font: inherit;
 }
 
 body {
-    background-color: rgb(22, 22, 29);
+    background-color: rgb(249, 250, 251);
+    color: rgb(22, 22, 29);
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
 }
