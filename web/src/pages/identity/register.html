@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Register</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/shared.css">
+    <link rel="stylesheet" href="../../styles/identity/register.css">
+</head>
+<body>
+<main class="main-container">
+    <div class="main-title">
+        <h1>Sandbox Bank</h1>
+        <span>Create your account in seconds.</span>
+    </div>
+    <form>
+        <!-- STEP 1: Identification -->
+        <div id="step-1" class="form-step" style="display: flex">
+            <fieldset class="form-fieldset">
+                <legend>Identification</legend>
+                <div class="input-group">
+                    <label for="input-cpf">CPF</label>
+                    <input id="input-cpf" type="text" name="cpf" placeholder="000.000.000-00" required>
+                </div>
+            </fieldset>
+            <div class="form-buttons">
+                <button type="button" id="btn-next-step-1" class="btn-primary">Continue</button>
+            </div>
+        </div>
+
+        <!-- STEP 2: User data -->
+        <div id="step-2" class="form-step" style="display: none;">
+            <fieldset class="form-fieldset">
+                <legend>Personal Information</legend>
+                <div class="input-group">
+                    <label for="input-name">Username</label>
+                    <input id="input-name" type="text" name="username" placeholder="John Doe" required>
+                </div>
+                <div class="input-group">
+                    <label for="input-email">Email</label>
+                    <input id="input-email" type="email" name="email" placeholder="example@email.com" required>
+                </div>
+            </fieldset>
+            <div class="form-buttons">
+                <button type="button" id="btn-back-step-1" class="btn-secondary">Back</button>
+                <button type="button" id="btn-next-step-2" class="btn-primary">Continue</button>
+            </div>
+        </div>
+
+        <!-- STEP 3: Secrets -->
+        <div id="step-3" class="form-step" style="display: none;">
+            <fieldset class="form-fieldset">
+                <legend>Security</legend>
+                <div class="input-group">
+                    <label for="input-pass">Password</label>
+                    <input id="input-pass" type="password" name="password" placeholder="********" required>
+                </div>
+                <div class="input-group">
+                    <label for="input-pass-confirm">Confirm Password</label>
+                    <input id="input-pass-confirm" type="password" name="password-confirm" placeholder="********"
+                           required>
+                </div>
+            </fieldset>
+            <div class="form-buttons">
+                <button type="button" id="btn-back-step-2" class="btn-secondary">Back</button>
+                <button type="submit" id="btn-register" class="btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+    <span class="hyperlink-span">Already have an account?<a class="links" href="login.html">Log in!</a></span>
+</main>
+</body>
+</html>

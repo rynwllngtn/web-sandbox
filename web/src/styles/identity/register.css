@@ -1,0 +1,16 @@
+.main-container form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.main-container form .form-step {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.main-container form .form-buttons {
+    display: flex;
+    gap: 10px;
+}
