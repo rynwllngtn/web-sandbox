@@ -1,18 +1,23 @@
-const step1 = document.getElementById("step-1");
-const step2 = document.getElementById("step-2");
-const step3 = document.getElementById("step-3");
+const DOM = {
+    steps: {
+        step1: document.getElementById("step-1"),
+        step2: document.getElementById("step-2"),
+        step3: document.getElementById("step-3")
+    },
+    buttons: {
+        next1: document.getElementById("btn-next-step-1"),
+        next2: document.getElementById("btn-next-step-2"),
+        back1: document.getElementById("btn-back-step-1"),
+        back2: document.getElementById("btn-back-step-2")
 
-const btnNext1 = document.getElementById("btn-next-step-1");
-const btnNext2 = document.getElementById("btn-next-step-2");
+    }
+}
 
-const btnBack1 = document.getElementById("btn-back-step-1");
-const btnBack2 = document.getElementById("btn-back-step-2");
+DOM.buttons.next1.addEventListener("click", () => handleInputAndNextStep(DOM.steps.step1, DOM.steps.step2));
+DOM.buttons.next2.addEventListener("click", () => handleInputAndNextStep(DOM.steps.step2, DOM.steps.step3));
 
-btnNext1.addEventListener("click", () => handleInputAndNextStep(step1, step2));
-btnNext2.addEventListener("click", () => handleInputAndNextStep(step2, step3));
-
-btnBack1.addEventListener("click", () => goToStep(step1));
-btnBack2.addEventListener("click", () => goToStep(step2));
+DOM.buttons.back1.addEventListener("click", () => goToStep(DOM.steps.step1));
+DOM.buttons.back2.addEventListener("click", () => goToStep(DOM.steps.step2));
 
 function goToStep(stepToShow) {
     let steps = document.querySelectorAll(".form-step");
