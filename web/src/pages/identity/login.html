@@ -5,26 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Login</title>
     <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/shared.css">
     <link rel="stylesheet" href="../../styles/identity/login.css">
 </head>
 <body>
 <main class="main-container">
-    <div class="login-title">
+    <div class="main-title">
         <h1>Sandbox Bank</h1>
-        <span class="details-span">Please enter your details.</span>
+        <span>Good to see you.</span>
     </div>
     <form>
-        <div class="input-group">
-            <label for="input-cpf">CPF</label>
-            <input id="input-cpf" type="text" name="cpf" placeholder="000.000.000-00" required>
+        <fieldset class="form-fieldset">
+            <legend>Please enter your details.</legend>
+            <div class="input-group">
+                <label for="input-cpf">CPF</label>
+                <input id="input-cpf" type="text" name="cpf" placeholder="000.000.000-00" required maxlength="14"
+                       pattern="\d{3}\.\d{3}\.\d{3}-\d{2}">
+            </div>
+            <div class="input-group">
+                <label for="input-password">Password</label>
+                <input id="input-password" type="password" name="password" placeholder="********" required>
+            </div>
+        </fieldset>
+        <div class="form-buttons">
+            <button class="btn-login" type="submit">Log In</button>
         </div>
-        <div class="input-group">
-            <label for="input-password">Password</label>
-            <input id="input-password" type="password" name="password" placeholder="********" required>
-        </div>
-        <button class="btn-login" type="submit">Login</button>
     </form>
-    <span class="sighup-span">Don't have an account?<a class="links" href="register.html">Sign up!</a></span>
+    <span class="hyperlink-span">Don't have an account?<a class="links" href="register.html">Sign up!</a></span>
 </main>
 </body>
 </html>
