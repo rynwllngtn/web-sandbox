@@ -88,3 +88,10 @@ a:hover {
     color: var(--link-hover);
     text-decoration: underline;
 }
+
+fieldset {
+    color: var(--text-muted);
+    font-size: 14px;
+    border: 1px solid var(--border-input);
+    border-radius: 6px;
+}
