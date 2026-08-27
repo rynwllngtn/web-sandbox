@@ -1,15 +1,24 @@
+import {fetchRegister} from "../../api/identityApi.js"
+
 const DOM = {
     steps: {
         step1: document.getElementById("step-1"),
         step2: document.getElementById("step-2"),
         step3: document.getElementById("step-3")
     },
+    inputs: {
+        cpf: document.getElementById("input-cpf"),
+        name: document.getElementById("input-name"),
+        email: document.getElementById("input-email"),
+        pass: document.getElementById("input-pass"),
+        pass_confirm: document.getElementById("input-pass-confirm"),
+    },
     buttons: {
         next1: document.getElementById("btn-next-step-1"),
         next2: document.getElementById("btn-next-step-2"),
         back1: document.getElementById("btn-back-step-1"),
-        back2: document.getElementById("btn-back-step-2")
-
+        back2: document.getElementById("btn-back-step-2"),
+        submit: document.getElementById("btn-register")
     }
 }
 
@@ -18,6 +27,18 @@ DOM.buttons.next2.addEventListener("click", () => handleInputAndNextStep(DOM.ste
 
 DOM.buttons.back1.addEventListener("click", () => goToStep(DOM.steps.step1));
 DOM.buttons.back2.addEventListener("click", () => goToStep(DOM.steps.step2));
+
+DOM.buttons.submit.addEventListener("click", async (event) => {
+    event.preventDefault();
+    const payload = {
+        cpf: DOM.inputs.cpf.value.replaceAll(/[.-]/g, ''),
+        password: DOM.inputs.pass.value,
+        username: DOM.inputs.name.value,
+        email: DOM.inputs.email.value
+    }
+    const response = await fetchRegister(payload);
+    console.log(response);
+});
 
 function goToStep(stepToShow) {
     let steps = document.querySelectorAll(".form-step");
@@ -32,7 +53,7 @@ function validateInputs(currentStep) {
     for (const input of inputs) {
         if (input.validity.valid === false) {
             input.reportValidity();
-            return false
+            return false;
         }
     }
     return true;
