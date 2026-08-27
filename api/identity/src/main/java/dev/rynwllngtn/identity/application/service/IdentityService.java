@@ -1,8 +1,11 @@
 package dev.rynwllngtn.identity.application.service;
 
-import dev.rynwllngtn.identity.application.dto.IdentityRequestDto;
-import dev.rynwllngtn.identity.application.dto.IdentityResponseDto;
+import dev.rynwllngtn.identity.application.dto.IdentityRegisterRequest;
+import dev.rynwllngtn.identity.application.dto.IdentityLoginRequest;
+import dev.rynwllngtn.identity.application.dto.IdentityResponse;
+import dev.rynwllngtn.identity.application.dto.IdentityTokenResponse;
 import dev.rynwllngtn.identity.application.exception.ResourceNotFoundException;
+import dev.rynwllngtn.identity.application.mapper.IdentityMapper;
 import dev.rynwllngtn.identity.domain.Identity;
 import dev.rynwllngtn.identity.infrastructure.persistence.IdentityRepositoryJpa;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +19,7 @@ import java.util.UUID;
 public class IdentityService {
 
     private final IdentityRepositoryJpa identityRepository;
+    private final IdentityMapper identityMapper;
 
     private Identity findByIdOrThrow(UUID uuid) {
         Optional<Identity> identity = identityRepository.findById(uuid);
@@ -24,23 +28,27 @@ public class IdentityService {
         );
     }
 
-    public IdentityResponseDto findById(UUID uuid) {
-        Identity identity = findByIdOrThrow(uuid);
-        return new IdentityResponseDto(identity.getId(),
-                                       identity.getCpf(),
-                                       identity.getEmail(),
-                                       identity.getStatus());
+    private Identity findByCpfAndPasswordOrThrow(String cpf, String password) {
+        Optional<Identity> identity = identityRepository.findByCpfAndPassword(cpf, password);
+        return identity.orElseThrow(
+                () -> new ResourceNotFoundException("Identidade não encotrada!")
+        );
     }
 
-    public IdentityResponseDto persist(IdentityRequestDto requestDto) {
-        Identity identity = new Identity(requestDto.cpf(),
-                                         requestDto.password(),
-                                         requestDto.email());
+    public IdentityResponse findById(UUID uuid) {
+        Identity identity = findByIdOrThrow(uuid);
+        return identityMapper.toResponse(identity);
+    }
+
+    public IdentityTokenResponse login(IdentityLoginRequest request) {
+        Identity identity = findByCpfAndPasswordOrThrow(request.cpf(), request.password());
+        return new IdentityTokenResponse(identity.getId());
+    }
+
+    public IdentityResponse register(IdentityRegisterRequest request) {
+        Identity identity = identityMapper.toEntity(request);
         identity = identityRepository.save(identity);
-        return new IdentityResponseDto(identity.getId(),
-                                       identity.getCpf(),
-                                       identity.getEmail(),
-                                       identity.getStatus());
+        return identityMapper.toResponse(identity);
     }
 
 }

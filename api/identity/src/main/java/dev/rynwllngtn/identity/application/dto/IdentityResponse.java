@@ -4,9 +4,10 @@ import dev.rynwllngtn.identity.domain.IdentityStatus;
 
 import java.util.UUID;
 
-public record IdentityResponseDto(
+public record IdentityResponse(
         UUID id,
         String cpf,
+        String username,
         String email,
         IdentityStatus status
 ) {}
