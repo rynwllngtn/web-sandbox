@@ -22,16 +22,20 @@ public class Identity {
     @Column(name = "password", nullable = false)
     private String password;
 
+    @Column(name = "username", nullable = false)
+    private String username;
+
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
     @Column(name = "status", nullable = false)
     private IdentityStatus status;
 
-    public Identity(String cpf, String password, String email) {
+    public Identity(String cpf, String password, String username, String email) {
         id = UUID.randomUUID();
         this.cpf = cpf;
         this.password = password;
+        this.username = username;
         this.email = email;
         status = IdentityStatus.ACTIVE;
     }
