@@ -13,7 +13,7 @@ import java.time.Instant;
 public class ApplicationExceptionHandler {
 
     @ExceptionHandler(value = ResourceNotFoundException.class)
-    public ProblemDetail resourceNotFound(UnauthorizedException e) {
+    public ProblemDetail resourceNotFound(ResourceNotFoundException e) {
         ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(
                 HttpStatus.BAD_REQUEST, e.getMessage()
         );
@@ -21,7 +21,7 @@ public class ApplicationExceptionHandler {
         return problemDetail;
     }
 
-    @ExceptionHandler(value = ResourceNotFoundException.class)
+    @ExceptionHandler(value = UnauthorizedException.class)
     public ProblemDetail unauthorized(UnauthorizedException e) {
         ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(
                 HttpStatus.UNAUTHORIZED, e.getMessage()

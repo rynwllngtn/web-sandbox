@@ -21,7 +21,8 @@
                 <legend>Identification</legend>
                 <div class="input-group">
                     <label for="input-cpf">CPF</label>
-                    <input id="input-cpf" type="text" name="cpf" placeholder="000.000.000-00" required>
+                    <input id="input-cpf" type="text" name="cpf" placeholder="000.000.000-00" required maxlength="14"
+                           pattern="\d{3}\.\d{3}\.\d{3}-\d{2}">
                 </div>
             </fieldset>
             <div class="form-buttons">
@@ -70,5 +71,6 @@
     </form>
     <span class="hyperlink-span">Already have an account?<a class="links" href="login.html">Log in!</a></span>
 </main>
+<script type="module" src="../../scripts/identity/register.js"></script>
 </body>
 </html>
