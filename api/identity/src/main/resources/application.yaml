@@ -2,8 +2,12 @@ spring:
   application:
     name: api
 
+  cors:
+    # $env:CORS_ALLOWED_ORIGINS="url"
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3000}
+
   datasource:
-    url: jdbc:h2:file:./api/data/samples
+    url: jdbc:h2:file:../data/samples
     driverClassName: org.h2.Driver
     username: sa
     password:
