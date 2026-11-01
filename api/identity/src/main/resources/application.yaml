@@ -3,6 +3,7 @@ spring:
     name: api
 
   cors:
+    # $env:CORS_ALLOWED_ORIGINS="url"
     allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3000}
 
   datasource:
