@@ -11,7 +11,7 @@ const path = {
     }
 }
 
-async function navigateTo(screen) {
+async function navigateTo(screen, addToHistory = true) {
     const appIndex = document.getElementById("index");
     const target = path[screen];
     try {
@@ -23,7 +23,9 @@ async function navigateTo(screen) {
         if (!response.ok) throw new Error("Bruh");
         appIndex.innerHTML = await response.text();
 
-        console.log(target.script);
+        if (addToHistory) {
+            window.history.pushState({}, "", screen);
+        }
 
         if (script) {
             target.run(script);
