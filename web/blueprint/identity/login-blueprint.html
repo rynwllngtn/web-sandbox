@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Login Blueprint</title>
+        <link rel="stylesheet" href="login-blueprint.css"/>
+        <style>
+            main {
+                outline: black solid 2px;
+            }
+
+            .login-info {
+                outline: red dashed 1px;
+                outline-offset: -2px;
+
+                & * {
+                    outline: black dashed 1px;
+                    outline-offset: -1px;
+                }
+            }
+
+            .login-form {
+                outline: blue dashed 1px;
+                outline-offset: -2px;
+
+                & * {
+                    outline: black dashed 1px;
+                    outline-offset: -1px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <aside class="login-info">
+                <p class="info-title">Welcome Title</p>
+                <p class="info-text">Welcome Text</p>
+            </aside>
+            <section class="login-form">
+                <header class="form-header">
+                    <svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="50" height="50" fill="black"/>
+                    </svg>
+                    <h1>Bank Title</h1>
+                </header>
+                <div class="form-body">
+                    <div class="body-title">
+                        <h2>Login Title</h2>
+                        <p>Login Text</p>
+                    </div>
+                    <form class="form-main">
+                        <div class="form-input">
+                            <label for="cpf" >CPF</label>
+                            <input type="text" id="cpf" name="cpf">
+                        </div>
+                        <div class="form-input">
+                            <label for="password" >Password</label>
+                            <input type="password" id="password" name="password">
+                        </div>
+                        <div class="form-helper">
+                            <a href="#">Forgot your password?</a>
+                        </div>
+                        <button type="submit">Login</button>
+                    </form>
+                </div>
+                <footer class="form-footer">
+                    <p>Doesnt have an account? <a href="#">Register</a></p>
+                </footer>
+            </section>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    max-width: 1200px;
+    margin: auto;
+    width: 95%;
+    height: 80%;
+
+    @media(max-width: 1024px) {
+        grid-template-columns: 35% 65%;
+        height: 90%;
+    }
+
+    @media(max-width: 768px) {
+        grid-template-columns: 100%;
+        height: 95%;
+    }
+}
+
+.login-info {
+    display: flex;
+    flex-direction: column;
+    padding: 80px 60px;
+    gap: 16px;
+    overflow-y: auto;
+
+    @media(max-width: 1024px) {
+        padding: 40px 30px;
+    }
+
+    @media(max-width: 768px) {
+        display: none;
+    }
+
+    & .info-title {
+        font-size: 20px;
+        padding: 24px;
+    }
+
+    & .info-text {
+        padding: 16px;
+    }
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: safe center;
+    padding: 0 120px;
+    overflow-y: auto;
+    gap: clamp(4px, calc(10vh - 65px), 24px);
+
+    @media(max-width: 1024px) {
+        padding: 40px 60px;
+    }
+
+    @media(max-width: 768px) {
+        padding: 10px 30px;
+    }
+}
+
+.form-header {
+    display: flex;
+    padding: 24px;
+    gap: 24px;
+
+    & h1 {
+        align-self: center;
+    }
+}
+
+.form-body {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 24px;
+    gap: 24px;
+
+    & .body-title * {
+        padding: 4px;
+    }
+}
+
+.form-main {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    & .form-input {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        & input {
+            height: 48px;
+        }
+    }
+
+    & .form-helper {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    & button {
+        width: 100%;
+        height: 48px;
+        margin-top: 16px;
+    }
+}
+
+.form-footer {
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+}
