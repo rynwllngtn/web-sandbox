@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    max-width: 1200px;
+    margin: auto;
+    width: 95%;
+    height: 80%;
+
+    @media(max-width: 1024px) {
+        grid-template-columns: 65% 35%;
+        height: 90%;
+    }
+
+    @media(max-width: 768px) {
+        grid-template-columns: 100%;
+        height: 95%;
+    }
+}
+
+.register-info {
+    display: flex;
+    flex-direction: column;
+    padding: 80px 60px;
+    gap: 16px;
+    overflow-y: auto;
+
+    @media(max-width: 1024px) {
+        padding: 40px 30px;
+    }
+
+    @media(max-width: 768px) {
+        display: none;
+    }
+
+    & .info-title {
+        font-size: 20px;
+        padding: 24px;
+    }
+
+    & .info-text {
+        padding: 16px;
+    }
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: safe center;
+    padding: 0 120px;
+    overflow-y: auto;
+    gap: clamp(4px, calc(10vh - 65px), 24px);
+
+    @media(max-width: 1024px) {
+        padding: 40px 60px;
+    }
+
+    @media(max-width: 768px) {
+        padding: 10px 30px;
+    }
+}
+
+.form-header {
+    display: flex;
+    padding: 24px;
+    gap: 24px;
+
+    & h1 {
+        align-self: center;
+    }
+}
+
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 24px;
+    gap: 24px;
+
+    & .form-title * {
+        padding: 4px;
+    }
+}
+
+.form-progress {
+    display: flex;
+    position: relative;
+    align-items: center;
+    width: 100%;
+    height: 10px;
+    padding: 24px 0;
+
+    & .progress-line {
+        stroke: black;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+
+    & .progress-dots {
+        display: flex;
+        position: relative;
+        justify-content: space-between;
+        width: 100%;
+        z-index: 2;
+
+        & .dot {
+            fill: black;
+            width: 30px;
+            height: 30px;
+        }
+
+        & .dot.active {
+            fill: blue;
+        }
+    }
+}
+
+.form-main {
+    display: flex;
+    flex-direction: column;
+
+    & section {
+        gap: 16px;
+    }
+
+    & .form-input {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        & input {
+            height: 48px;
+        }
+    }
+
+    & .form-helper {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    & .form-buttons {
+        display: flex;
+        gap: 16px;
+
+        & .btn-primary {
+            display: flex;
+            justify-content: center;
+            flex: 1;
+            padding: 16px;
+        }
+
+        & .btn-secondary {
+            padding: 16px 20px;
+        }
+
+    }
+
+    & button {
+        height: 48px;
+        margin-top: 16px;
+    }
+}
+
+.form-footer {
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+}

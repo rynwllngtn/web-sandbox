@@ -87,13 +87,13 @@ main {
     }
 }
 
-.form-body {
+.form-wrapper {
     display: flex;
     flex-direction: column;
     padding: 8px 24px;
     gap: 24px;
 
-    & .body-title * {
+    & .form-title * {
         padding: 4px;
     }
 }
