@@ -20,7 +20,7 @@
                 }
             }
 
-            .login-form {
+            .login-panel {
                 outline: blue dashed 1px;
                 outline-offset: -2px;
 
@@ -34,37 +34,35 @@
     <body>
         <main>
             <aside class="login-info">
-                <p class="info-title">Welcome Title</p>
+                <h2 class="info-title">Welcome Title</h2>
                 <p class="info-text">Welcome Text</p>
             </aside>
-            <section class="login-form">
-                <header class="form-header">
+            <section class="login-panel">
+                <header class="panel-header">
                     <svg width="50" height="50" viewBox="0 0 50 50">
                         <rect width="50" height="50" fill="black"/>
                     </svg>
                     <h1>Bank Title</h1>
                 </header>
-                <div class="form-wrapper">
-                    <header class="form-title">
+                <form class="panel-form">
+                    <header class="form-header">
                         <h2>Login Title</h2>
                         <p>Login Text</p>
                     </header>
-                    <form class="form-main">
-                        <div class="form-input">
-                            <label for="cpf" >CPF</label>
-                            <input type="text" id="cpf" name="cpf">
-                        </div>
-                        <div class="form-input">
-                            <label for="password" >Password</label>
-                            <input type="password" id="password" name="password">
-                        </div>
-                        <div class="form-helper">
-                            <a href="#">Forgot your password?</a>
-                        </div>
-                        <button type="submit">Login</button>
-                    </form>
-                </div>
-                <footer class="form-footer">
+                    <div class="form-input">
+                        <label for="cpf" >CPF</label>
+                        <input type="text" id="cpf" name="cpf">
+                    </div>
+                    <div class="form-input">
+                        <label for="password" >Password</label>
+                        <input type="password" id="password" name="password">
+                    </div>
+                    <div class="form-helper">
+                        <a href="#">Forgot your password?</a>
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+                <footer class="panel-footer">
                     <p>Doesnt have an account? <a href="#">Register</a></p>
                 </footer>
             </section>

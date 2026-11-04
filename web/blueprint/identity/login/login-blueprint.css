@@ -60,7 +60,7 @@ main {
     }
 }
 
-.login-form {
+.login-panel {
     display: flex;
     flex-direction: column;
     justify-content: safe center;
@@ -77,7 +77,7 @@ main {
     }
 }
 
-.form-header {
+.panel-header {
     display: flex;
     padding: 24px;
     gap: 24px;
@@ -87,21 +87,15 @@ main {
     }
 }
 
-.form-wrapper {
+.panel-form {
     display: flex;
     flex-direction: column;
     padding: 8px 24px;
-    gap: 24px;
+    gap: 16px;
 
-    & .form-title * {
+    & .form-header * {
         padding: 4px;
     }
-}
-
-.form-main {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
 
     & .form-input {
         display: flex;
@@ -125,7 +119,7 @@ main {
     }
 }
 
-.form-footer {
+.panel-footer {
     display: flex;
     justify-content: center;
     padding: 24px;

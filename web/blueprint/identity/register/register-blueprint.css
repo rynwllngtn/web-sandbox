@@ -60,13 +60,13 @@ main {
     }
 }
 
-.register-form {
+.register-panel {
     display: flex;
     flex-direction: column;
     justify-content: safe center;
     padding: 0 120px;
     overflow-y: auto;
-    gap: clamp(4px, calc(10vh - 65px), 24px);
+    gap: clamp(4px, calc(10vh - 60px), 24px);
 
     @media(max-width: 1024px) {
         padding: 40px 60px;
@@ -77,7 +77,7 @@ main {
     }
 }
 
-.form-header {
+.panel-header {
     display: flex;
     padding: 24px;
     gap: 24px;
@@ -87,14 +87,50 @@ main {
     }
 }
 
-.form-wrapper {
+.panel-form {
     display: flex;
     flex-direction: column;
     padding: 8px 24px;
     gap: 24px;
 
-    & .form-title * {
+    & section {
+        gap: 16px;
+    }
+
+    & .form-header * {
         padding: 4px;
+    }
+
+    & .form-input {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        & input {
+            height: 48px;
+        }
+    }
+
+    & .form-buttons {
+        display: flex;
+        gap: 16px;
+
+        & .btn-primary {
+            display: flex;
+            justify-content: center;
+            flex: 1;
+            padding: 16px;
+        }
+
+        & .btn-secondary {
+            padding: 16px 20px;
+        }
+
+    }
+
+    & button {
+        height: 48px;
+        margin-top: 16px;
     }
 }
 
@@ -133,53 +169,7 @@ main {
     }
 }
 
-.form-main {
-    display: flex;
-    flex-direction: column;
-
-    & section {
-        gap: 16px;
-    }
-
-    & .form-input {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-
-        & input {
-            height: 48px;
-        }
-    }
-
-    & .form-helper {
-        display: flex;
-        justify-content: flex-end;
-    }
-
-    & .form-buttons {
-        display: flex;
-        gap: 16px;
-
-        & .btn-primary {
-            display: flex;
-            justify-content: center;
-            flex: 1;
-            padding: 16px;
-        }
-
-        & .btn-secondary {
-            padding: 16px 20px;
-        }
-
-    }
-
-    & button {
-        height: 48px;
-        margin-top: 16px;
-    }
-}
-
-.form-footer {
+.panel-footer {
     display: flex;
     justify-content: center;
     padding: 24px;

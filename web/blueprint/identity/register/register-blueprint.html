@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+    <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -20,7 +20,7 @@
                 }
             }
 
-            .register-form {
+            .register-panel {
                 outline: blue dashed 1px;
                 outline-offset: -2px;
 
@@ -30,7 +30,7 @@
                 }
             }
 
-            .form-main section {
+            .panel-form section {
                 display: none;
                 flex-direction: column;
             }
@@ -38,15 +38,15 @@
     </head>
     <body>
         <main>
-            <section class="register-form">
-                <header class="form-header">
+            <section class="register-panel">
+                <header class="panel-header">
                     <svg width="50" height="50" viewBox="0 0 50 50">
                         <rect width="50" height="50" fill="black"/>
                     </svg>
                     <h1>Bank Title</h1>
                 </header>
-                <div class="form-wrapper">
-                    <header class="form-title">
+                <form class="panel-form">
+                    <header class="form-header">
                         <h2>Registration Title</h2>
                         <p>Registration Text</p>
                     </header>
@@ -66,50 +66,48 @@
                             </svg>
                         </div>
                     </div>
-                    <form class="form-main">
-                        <section id="section-1" class="register-identity" style="display: flex">
-                            <div class="form-input">
-                                <label for="cpf">CPF</label>
-                                <input type="text" id="cpf" name="cpf">
-                            </div>
-                            <button type="button" onclick="formSection(2)">Continue</button>
-                        </section>
-                        <section id="section-2" class="register-data">
-                            <div class="form-input">
-                                <label for="email">Email</label>
-                                <input type="text" id="email" name="email">
-                            </div>
-                            <div class="form-input">
-                                <label for="username">Username</label>
-                                <input type="text" id="username" name="username">
-                            </div>
-                            <div class="form-buttons">
-                                <button class="btn-secondary" type="button" onclick="formSection(1)">Back</button>
-                                <button class="btn-primary" type="button" onclick="formSection(3)">Continue</button>
-                            </div>
-                        </section>
-                        <section id="section-3" class="register-secrets">
-                            <div class="form-input">
-                                <label for="password">Password</label>
-                                <input type="password" id="password" name="password">
-                            </div>
-                            <div class="form-input">
-                                <label for="password-confirm">Password Confirmation</label>
-                                <input type="password" id="password-confirm" name="password-confirm">
-                            </div>
-                            <div class="form-buttons">
-                                <button class="btn-secondary" type="button" onclick="formSection(2)">Back</button>
-                                <button class="btn-primary" type="submit">Register</button>
-                            </div>
-                        </section>
-                    </form>
-                </div>
-                <footer class="form-footer">
+                    <section id="section-1" class="register-identity" style="display: flex">
+                        <div class="form-input">
+                            <label for="cpf">CPF</label>
+                            <input type="text" id="cpf" name="cpf">
+                        </div>
+                        <button type="button" onclick="formSection(2)">Continue</button>
+                    </section>
+                    <section id="section-2" class="register-data">
+                        <div class="form-input">
+                            <label for="email">Email</label>
+                            <input type="text" id="email" name="email">
+                        </div>
+                        <div class="form-input">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username">
+                        </div>
+                        <div class="form-buttons">
+                            <button class="btn-secondary" type="button" onclick="formSection(1)">Back</button>
+                            <button class="btn-primary" type="button" onclick="formSection(3)">Continue</button>
+                        </div>
+                    </section>
+                    <section id="section-3" class="register-secrets">
+                        <div class="form-input">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password">
+                        </div>
+                        <div class="form-input">
+                            <label for="password-confirm">Password Confirmation</label>
+                            <input type="password" id="password-confirm" name="password-confirm">
+                        </div>
+                        <div class="form-buttons">
+                            <button class="btn-secondary" type="button" onclick="formSection(2)">Back</button>
+                            <button class="btn-primary" type="submit">Register</button>
+                        </div>
+                    </section>
+                </form>
+                <footer class="panel-footer">
                     <p>Already have an account? <a href="#">Login</a></p>
                 </footer>
             </section>
             <aside class="register-info">
-                <p class="info-title">Welcome Title</p>
+                <h2 class="info-title">Welcome Title</h2>
                 <p class="info-text">Welcome Text</p>
             </aside>
         </main>
