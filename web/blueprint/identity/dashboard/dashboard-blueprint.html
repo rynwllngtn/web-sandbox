@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Dashboard Blueprint</title>
+        <link rel="stylesheet" href="dashboard-blueprint.css"/>
+        <style>
+            .dashboard-sidebar {
+                outline: green dashed 1px;
+                outline-offset: -2px;
+
+                & * {
+                    outline: black dashed 1px;
+                    outline-offset: -1px;
+                }
+            }
+
+            .dashboard-header {
+                outline: red dashed 1px;
+                outline-offset: -2px;
+
+                & * {
+                    outline: black dashed 1px;
+                    outline-offset: -1px;
+                }
+            }
+
+            .dashboard-content {
+                outline: blue dashed 1px;
+                outline-offset: -2px;
+
+                & * {
+                    outline: black dashed 1px;
+                    outline-offset: -1px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="dashboard-layout">
+            <aside class="dashboard-sidebar">
+                <header class="sidebar-header">
+                    <svg width="50" height="50" viewBox="0 0 50 50">
+                        <rect width="50" height="50" fill="black"/>
+                    </svg>
+                    <h1>Bank Title</h1>
+                </header>
+                <nav class="sidebar-nav">
+                    <a class="nav-item" href="#">Dashboard</a>
+                    <a class="nav-item" href="#">Unreleased</a>
+                    <a class="nav-item" href="#">Unreleased</a>
+                </nav>
+                <footer class="sidebar-footer">
+                    <button type="button">Logout</button>
+                </footer>
+            </aside>
+            <header class="dashboard-header">
+                <div class="header-title">
+                    <h2>Dashboard Title</h2>
+                    <p>Welcome Title</p>
+                </div>
+                <div class="header-user">
+                    <p>Username</p>
+                    <svg width="50" height="50" viewBox="0 0 50 50">
+                        <circle cx="25" cy="25" r="25" fill="black"/>
+                    </svg>
+                </div>
+            </header>
+            <main class="dashboard-content">
+                <article class="content-card">
+                    <header class="card-header">
+                        <h3>Identity Details</h3>
+                    </header>
+                    <dl class="content-list">
+                        <div class="list-item">
+                            <dt>CPF</dt>
+                            <dd id="identity-cpf">CPF_placeholder</dd>
+                        </div>
+                        <div class="list-item">
+                            <dt>Username</dt>
+                            <dd id="identity-username">username_placeholder</dd>
+                        </div>
+                        <div class="list-item">
+                            <dt>Email</dt>
+                            <dd id="identity-email">email_placeholder</dd>
+                        </div>
+                        <div class="list-item">
+                            <dt>Status</dt>
+                            <dd id="identity-status">status_placeholder</dd>
+                        </div>
+                    </dl>
+                </article>
+            </main>
+        </div>
+    </body>
+</html>
