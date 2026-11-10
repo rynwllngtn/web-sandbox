@@ -1,24 +1,35 @@
-<main class="main-container">
-    <div class="main-title">
-        <h1>Sandbox Bank</h1>
-        <span>Good to see you.</span>
-    </div>
-    <form>
-        <fieldset class="form-fieldset">
-            <legend>Please enter your details.</legend>
-            <div class="input-group">
-                <label for="input-cpf">CPF</label>
-                <input id="input-cpf" type="text" name="cpf" placeholder="000.000.000-00" required maxlength="14"
-                       pattern="\d{3}\.\d{3}\.\d{3}-\d{2}">
+<main class="login-layout">
+    <aside class="login-info">
+        <h2 class="info-title">Welcome Title</h2>
+        <p class="info-text">Welcome Text</p>
+    </aside>
+    <section class="login-panel">
+        <header class="panel-header">
+            <svg width="50" height="50" viewBox="0 0 50 50">
+                <rect width="50" height="50" fill="black"/>
+            </svg>
+            <h1>Bank Title</h1>
+        </header>
+        <form class="panel-form">
+            <header class="form-header">
+                <h2>Login Title</h2>
+                <p>Login Text</p>
+            </header>
+            <div class="form-input">
+                <label for="input-cpf" >CPF</label>
+                <input type="text" id="input-cpf" name="cpf">
             </div>
-            <div class="input-group">
-                <label for="input-password">Password</label>
-                <input id="input-password" type="password" name="password" placeholder="********" required>
+            <div class="form-input">
+                <label for="input-password" >Password</label>
+                <input type="password" id="input-password" name="password">
             </div>
-        </fieldset>
-        <div class="form-buttons">
-            <button id="btn-login" class="btn-primary" type="submit">Log In</button>
-        </div>
-    </form>
-    <span class="hyperlink-span">Don't have an account?<a class="links" data-route="/register">Sign up!</a></span>
+            <div class="form-helper">
+                <a href="#">Forgot your password?</a>
+            </div>
+            <button id="btn-login" type="submit" data-route="/dashboard">Login</button>
+        </form>
+        <footer class="panel-footer">
+            <p>Doesnt have an account? <a class="links" data-route="/register">Register</a></p>
+        </footer>
+    </section>
 </main>

@@ -1,6 +1,22 @@
-.main-container form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 20px;
+.login-layout {
+    grid-template-columns: 40% 60%;
+
+    @media(max-width: 1024px) {
+        grid-template-columns: 35% 65%;
+    }
+
+    @media(max-width: 768px) {
+        grid-template-columns: 100%;
+    }
+}
+
+.login-panel .panel-form {
+    & .form-helper {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    & button {
+        width: 100%;
+    }
 }

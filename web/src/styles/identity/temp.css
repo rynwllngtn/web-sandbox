@@ -1,0 +1,38 @@
+.login-layout,
+.register-layout {
+    outline: black solid 2px;
+}
+
+.login-info,
+.register-info,
+.dashboard-header {
+    outline: red dashed 1px;
+    outline-offset: -2px;
+
+    & * {
+        outline: black dashed 1px;
+        outline-offset: -1px;
+    }
+}
+
+.login-panel,
+.register-panel,
+.dashboard-content {
+    outline: blue dashed 1px;
+    outline-offset: -2px;
+
+    & * {
+        outline: black dashed 1px;
+        outline-offset: -1px;
+    }
+}
+
+.dashboard-sidebar {
+    outline: green dashed 1px;
+    outline-offset: -2px;
+
+    & * {
+        outline: black dashed 1px;
+        outline-offset: -1px;
+    }
+}

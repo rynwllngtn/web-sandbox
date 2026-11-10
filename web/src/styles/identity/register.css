@@ -1,16 +1,78 @@
-.main-container form {
+.register-layout {
+
+
+    grid-template-columns: 60% 40%;
+
+    @media(max-width: 1024px) {
+        grid-template-columns: 65% 35%;
+    }
+
+    @media(max-width: 768px) {
+        grid-template-columns: 100%;
+    }
+}
+
+.register-panel {
+    gap: clamp(4px, calc(10vh - 60px), 24px);
+
+    & .panel-form {
+        gap: 24px;
+
+        & section {
+            display: none;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        & .form-buttons {
+            display: flex;
+            gap: 16px;
+
+            & .btn-primary {
+                display: flex;
+                justify-content: center;
+                flex: 1;
+                padding: 16px;
+            }
+
+            & .btn-secondary {
+                padding: 16px 20px;
+            }
+        }
+    }
+}
+
+.form-progress {
     display: flex;
-    flex-direction: column;
+    position: relative;
+    align-items: center;
     width: 100%;
-}
+    height: 10px;
+    padding: 24px 0;
 
-.main-container form .form-step {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
+    & .progress-line {
+        stroke: black;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
 
-.main-container form .form-buttons {
-    display: flex;
-    gap: 10px;
+    & .progress-dots {
+        display: flex;
+        position: relative;
+        justify-content: space-between;
+        width: 100%;
+        z-index: 2;
+
+        & .dot {
+            fill: black;
+            width: 30px;
+            height: 30px;
+        }
+
+        & .dot.active {
+            fill: blue;
+        }
+    }
 }

@@ -8,6 +8,11 @@ const path = {
         html: "/src/pages/identity/register.html",
         script: () => import("/src/scripts/identity/register.js"),
         run: (script) => script.init()
+    },
+    "/dashboard": {
+        html: "/src/pages/identity/dashboard.html",
+        script: () => import("/src/scripts/identity/dashboard.js"),
+        run: (script) => script.init()
     }
 }
 
