@@ -1,15 +1,17 @@
 .register-layout {
-
-
     grid-template-columns: 60% 40%;
 
-    @media(max-width: 1024px) {
+    @media (max-width: 1024px) {
         grid-template-columns: 65% 35%;
     }
 
-    @media(max-width: 768px) {
+    @media (max-width: 768px) {
         grid-template-columns: 100%;
     }
+}
+
+.register-info {
+    border-left: 1px solid var(--color-sage-green-700);
 }
 
 .register-panel {
@@ -30,13 +32,13 @@
 
             & .btn-primary {
                 display: flex;
+                align-items: center;
                 justify-content: center;
                 flex: 1;
-                padding: 16px;
             }
 
             & .btn-secondary {
-                padding: 16px 20px;
+                padding: 0 24px;
             }
         }
     }
@@ -44,35 +46,61 @@
 
 .form-progress {
     display: flex;
-    position: relative;
     align-items: center;
     width: 100%;
-    height: 10px;
-    padding: 24px 0;
+    padding: 12px 0;
 
     & .progress-line {
-        stroke: black;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-    }
+        flex: 1;
+        width: 0;
+        height: 12px;
+        margin: 0 -2px;
+        overflow: visible;
 
-    & .progress-dots {
-        display: flex;
-        position: relative;
-        justify-content: space-between;
-        width: 100%;
-        z-index: 2;
-
-        & .dot {
-            fill: black;
-            width: 30px;
-            height: 30px;
+        & .line-bg {
+            stroke: var(--color-sage-green-200);
         }
 
-        & .dot.active {
-            fill: blue;
+        & .line-fill {
+            stroke: var(--color-sunglow-yellow-400);
+            stroke-dasharray: 1;
+            stroke-dashoffset: 1;
+            filter: drop-shadow(0 0 6px rgb(from var(--color-sunglow-yellow-400) r g b / 0));
+            transition: stroke-dashoffset 0.2s ease-in-out 0s, filter 0.2s ease 0s;
+        }
+
+        &:has(+ .dot.active) .line-fill {
+            stroke-dashoffset: 0;
+            filter: drop-shadow(0 0 6px rgb(from var(--color-sunglow-yellow-400) r g b / 0.65));
+            transition: stroke-dashoffset 0.2s ease-in-out 0s, filter 0.2s ease 0s;
+        }
+    }
+
+    & .dot {
+        fill: var(--color-white);
+        stroke: var(--color-sage-green-300);
+        stroke-width: 3px;
+        width: 30px;
+        height: 30px;
+        overflow: visible;
+        z-index: 2;
+        filter: drop-shadow(0 2px 6px rgb(from var(--color-sunglow-yellow-400) r g b / 0));
+        transition:
+            fill 0.2s ease 0s,
+            stroke 0.2s ease 0s,
+            filter 0.2s ease 0s,
+            transform 0.1s ease 0s;
+
+        &.active {
+            fill: var(--color-sunglow-yellow-400);
+            stroke: rgb(from var(--color-sunglow-yellow-500) r g b / 0.5);
+            filter: drop-shadow(0 2px 6px rgb(from var(--color-sunglow-yellow-400) r g b / 0.75));
+            transform: scale(1.05);
+            transition:
+                fill 0.2s ease 0.2s,
+                stroke 0.2s ease 0.2s,
+                filter 0.2s ease 0.2s,
+                transform 0.1s ease 0.3s;
         }
     }
 }

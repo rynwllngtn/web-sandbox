@@ -1,8 +1,3 @@
-.register-layout {
-    outline: black solid 2px;
-}
-
-.register-info,
 .dashboard-header {
     outline: red dashed 1px;
     outline-offset: -2px;
@@ -13,7 +8,6 @@
     }
 }
 
-.register-panel,
 .dashboard-content {
     outline: blue dashed 1px;
     outline-offset: -2px;
