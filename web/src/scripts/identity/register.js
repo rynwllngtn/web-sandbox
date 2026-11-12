@@ -5,32 +5,32 @@ import {fetchRegister} from "../../api/identityApi.js"
 
 export function init() {
     const DOM = {
-        steps: {
-            step1: document.getElementById("step-1"),
-            step2: document.getElementById("step-2"),
-            step3: document.getElementById("step-3")
+        section: {
+            section1: document.getElementById("section-1"),
+            section2: document.getElementById("section-2"),
+            section3: document.getElementById("section-3")
         },
         inputs: {
-            cpf: document.getElementById("input-cpf"),
-            name: document.getElementById("input-name"),
-            email: document.getElementById("input-email"),
-            pass: document.getElementById("input-pass"),
-            pass_confirm: document.getElementById("input-pass-confirm"),
+            cpf: document.getElementById("cpf"),
+            email: document.getElementById("email"),
+            name: document.getElementById("username"),
+            pass: document.getElementById("password"),
+            pass_confirm: document.getElementById("password-confirm"),
         },
         buttons: {
-            next1: document.getElementById("btn-next-step-1"),
-            next2: document.getElementById("btn-next-step-2"),
-            back1: document.getElementById("btn-back-step-1"),
-            back2: document.getElementById("btn-back-step-2"),
+            next1: document.getElementById("btn-next-section-1"),
+            next2: document.getElementById("btn-next-section-2"),
+            back1: document.getElementById("btn-back-section-1"),
+            back2: document.getElementById("btn-back-section-2"),
             submit: document.getElementById("btn-register")
         }
     }
 
-    DOM.buttons.next1.addEventListener("click", () => handleInputAndNextStep(DOM.steps.step1, DOM.steps.step2));
-    DOM.buttons.next2.addEventListener("click", () => handleInputAndNextStep(DOM.steps.step2, DOM.steps.step3));
+    DOM.buttons.next1.addEventListener("click", () => handleInputAndNextSection(DOM.section.section1, DOM.section.section2));
+    DOM.buttons.next2.addEventListener("click", () => handleInputAndNextSection(DOM.section.section2, DOM.section.section3));
 
-    DOM.buttons.back1.addEventListener("click", () => goToStep(DOM.steps.step1));
-    DOM.buttons.back2.addEventListener("click", () => goToStep(DOM.steps.step2));
+    DOM.buttons.back1.addEventListener("click", () => goToSection(DOM.section.section1));
+    DOM.buttons.back2.addEventListener("click", () => goToSection(DOM.section.section2));
 
     DOM.buttons.submit.addEventListener("click", async (event) => {
         event.preventDefault();
@@ -46,16 +46,25 @@ export function init() {
 }
 
 
-function goToStep(stepToShow) {
-    let steps = document.querySelectorAll(".form-step");
-    for (const step of steps) {
-        step.style.display = "none";
+function goToSection(sectionToShow) {
+    let sections = document.querySelectorAll(".section-step");
+    for (const section of sections) {
+        section.style.display = "none";
     }
-    stepToShow.style.display = "flex";
+    sectionToShow.style.display = "flex";
+
+    let dots = document.querySelectorAll(".dot");
+    for (const dot of dots) {
+        dot.classList.remove("active");
+    }
+    const sectionNumber = Number(sectionToShow.dataset.section);
+    for (let i = 1; i <= sectionNumber; i++) {
+        document.getElementById("dot-" + i).classList.add("active");
+    }
 }
 
-function validateInputs(currentStep) {
-    const inputs = currentStep.querySelectorAll("input");
+function validateInputs(currentSection) {
+    const inputs = currentSection.querySelectorAll("input");
     for (const input of inputs) {
         if (input.validity.valid === false) {
             input.reportValidity();
@@ -65,8 +74,8 @@ function validateInputs(currentStep) {
     return true;
 }
 
-function handleInputAndNextStep(currentStep, nextStep) {
-    if (validateInputs(currentStep)) {
-        goToStep(nextStep);
+function handleInputAndNextSection(currentSection, nextSection) {
+    if (validateInputs(currentSection)) {
+        goToSection(nextSection);
     }
 }

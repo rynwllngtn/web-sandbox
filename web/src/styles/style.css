@@ -1,98 +1,59 @@
 :root {
-    --color-primary: rgb(21, 65, 45);
-    --color-primary-hover: rgb(26, 80, 56);
-    --color-primary-transparent: rgba(21, 65, 45, 0.15);
+    --color-sunglow-yellow-50: #fefae8;
+    --color-sunglow-yellow-100: #fff4c2;
+    --color-sunglow-yellow-200: #ffe689;
+    --color-sunglow-yellow-300: #ffcc33;
+    --color-sunglow-yellow-400: #fdb812;
+    --color-sunglow-yellow-500: #ec9f06;
+    --color-sunglow-yellow-600: #cc7802;
+    --color-sunglow-yellow-700: #a35405;
+    --color-sunglow-yellow-800: #86420d;
+    --color-sunglow-yellow-900: #723611;
+    --color-sunglow-yellow-950: #431a05;
 
-    --bg-body: rgb(243, 244, 246);
-    --bg-card: rgb(255, 255, 255);
+    --color-sage-green-50: #f3f6ef;
+    --color-sage-green-100: #e4ecdb;
+    --color-sage-green-200: #cadbbb;
+    --color-sage-green-300: #a9c393;
+    --color-sage-green-400: #87a96b;
+    --color-sage-green-500: #6d9052;
+    --color-sage-green-600: #54713f;
+    --color-sage-green-700: #425833;
+    --color-sage-green-800: #37482c;
+    --color-sage-green-900: #313e29;
+    --color-sage-green-950: #172013;
 
-    --text-main: rgb(31, 41, 55);
-    --text-muted: rgb(107, 114, 128);
+    --color-white: #ffffff;
+    --color-offwhite: #faf9f6;
 
-    --border-input: rgb(209, 213, 219);
-    --border-input-hover: rgb(156, 163, 175);
-
-    --link-color: rgb(37, 99, 235);
-    --link-hover: rgb(29, 78, 216);
+    --font-sans: "Inter", "Segoe UI", Roboto, sans-serif;
+    --font-heading: "Plus Jakarta Sans", var(--font-sans);
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Verdana, sans-serif;
 }
 
-html, body {
+html, body, #index {
+    width: 100%;
     height: 100%;
+    font-family: var(--font-sans);
+}
+
+body, #index {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
 }
 
 input, button {
-    font: inherit;
-}
-
-body {
-    background-color: var(--bg-body);
-    color: var(--text-main);
-}
-
-input {
-    width: 100%;
-    padding: 12px 12px;
-    border: 1px solid var(--border-input);
-    border-radius: 6px;
-    font-size: 14px;
-    background-color: var(--bg-card);
-    transition: all 0.1s ease;
-}
-
-input:hover {
-    border-color: var(--border-input-hover)
-}
-
-input:focus {
-    outline: none;
-    border-color: var(--color-primary);
-    box-shadow: 0 0 5px 3px var(--color-primary-transparent);
-    background-color: var(--bg-card);
-}
-
-button {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    background-color: var(--color-primary);
-    color: var(--bg-card);
-    border-radius: 6px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.1s ease;
-}
-
-button:hover {
-    background-color: var(--color-primary-hover);
-}
-
-button:active {
-    transform: scale(0.98);
-}
-
-a {
-    text-decoration: none;
-    color: var(--link-color);
-    font-weight: bold;
-    transition: color 0.1s ease;
-    cursor: pointer;
-}
-
-a:hover {
-    color: var(--link-hover);
-    text-decoration: underline;
-}
-
-fieldset {
-    color: var(--text-muted);
-    font-size: 14px;
-    border: 1px solid var(--border-input);
-    border-radius: 6px;
+    height: 48px;
+    font-family: inherit;
 }

@@ -1,0 +1,55 @@
+<div class="dashboard-layout">
+    <aside class="dashboard-sidebar">
+        <header class="sidebar-header">
+            <svg class="logo-sandbox" width="50" height="50" aria-hidden="true">
+                <use href="/assets/logo.svg#sandbox-logo"></use>
+            </svg>
+            <h1>SANDBOX</h1>
+        </header>
+        <nav class="sidebar-nav">
+            <a class="nav-item active" href="#">Dashboard</a>
+            <a class="nav-item" href="#">Unreleased</a>
+            <a class="nav-item" href="#">Unreleased</a>
+        </nav>
+        <footer class="sidebar-footer">
+            <button type="button" data-route="/login">Sign Out</button>
+        </footer>
+    </aside>
+    <header class="dashboard-header">
+        <div class="header-title">
+            <h2>Account Overview</h2>
+            <p>Welcome back to your SandBox account</p>
+        </div>
+        <div class="header-user">
+            <p>Username</p>
+            <svg class="user-icon" width="44" height="44" aria-hidden="true">
+                <use href="/assets/user.svg#user-icon"></use>
+            </svg>
+        </div>
+    </header>
+    <main class="dashboard-content">
+        <article class="content-card">
+            <header class="card-header">
+                <h3>Identity Details</h3>
+            </header>
+            <dl class="content-list">
+                <div class="list-item">
+                    <dt>CPF</dt>
+                    <dd id="identity-cpf">000.000.000-00</dd>
+                </div>
+                <div class="list-item">
+                    <dt>Username</dt>
+                    <dd id="identity-username">sandbox_user</dd>
+                </div>
+                <div class="list-item">
+                    <dt>Email</dt>
+                    <dd id="identity-email">user@sandbox.com</dd>
+                </div>
+                <div class="list-item">
+                    <dt>Status</dt>
+                    <dd id="identity-status">Active</dd>
+                </div>
+            </dl>
+        </article>
+    </main>
+</div>
