@@ -1,9 +1,7 @@
-.login-layout,
 .register-layout {
     outline: black solid 2px;
 }
 
-.login-info,
 .register-info,
 .dashboard-header {
     outline: red dashed 1px;
@@ -15,7 +13,6 @@
     }
 }
 
-.login-panel,
 .register-panel,
 .dashboard-content {
     outline: blue dashed 1px;

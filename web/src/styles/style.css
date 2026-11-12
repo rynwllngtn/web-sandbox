@@ -1,3 +1,35 @@
+:root {
+    --color-sunglow-yellow-50: #fefae8;
+    --color-sunglow-yellow-100: #fff4c2;
+    --color-sunglow-yellow-200: #ffe689;
+    --color-sunglow-yellow-300: #ffcc33;
+    --color-sunglow-yellow-400: #fdb812;
+    --color-sunglow-yellow-500: #ec9f06;
+    --color-sunglow-yellow-600: #cc7802;
+    --color-sunglow-yellow-700: #a35405;
+    --color-sunglow-yellow-800: #86420d;
+    --color-sunglow-yellow-900: #723611;
+    --color-sunglow-yellow-950: #431a05;
+
+    --color-sage-green-50: #f3f6ef;
+    --color-sage-green-100: #e4ecdb;
+    --color-sage-green-200: #cadbbb;
+    --color-sage-green-300: #a9c393;
+    --color-sage-green-400: #87a96b;
+    --color-sage-green-500: #6d9052;
+    --color-sage-green-600: #54713f;
+    --color-sage-green-700: #425833;
+    --color-sage-green-800: #37482c;
+    --color-sage-green-900: #313e29;
+    --color-sage-green-950: #172013;
+
+    --color-white: #ffffff;
+    --color-offwhite: #faf9f6;
+
+    --font-sans: "Inter", "Segoe UI", Roboto, sans-serif;
+    --font-heading: "Plus Jakarta Sans", var(--font-sans);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +39,7 @@
 html, body, #index {
     width: 100%;
     height: 100%;
+    font-family: var(--font-sans);
 }
 
 body, #index {
@@ -16,11 +49,11 @@ body, #index {
     min-height: 100%;
 }
 
-input, button {
-    height: 48px;
+h1, h2, h3 {
+    font-family: var(--font-heading);
 }
 
-a {
-    color: blue;
-    cursor: pointer;
+input, button {
+    height: 48px;
+    font-family: inherit;
 }

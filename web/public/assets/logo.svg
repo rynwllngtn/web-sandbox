@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+    <symbol id="sandbox-logo" viewBox="0 0 100 100">
+        <polygon fill="var(--box-light, #37482c)" points="50,18 14,34 22,38 50,25.5"/>
+        <polygon fill="var(--box-shade, #172013)" points="50,18 86,34 78,38 50,25.5"/>
+        <path fill="var(--box-light, #37482c)" fill-rule="evenodd"
+              d="M 10,38 L 50,56 L 50,63.5 L 15.5,48 L 15.5,58.5 L 50,74 L 50,81.5 L 10,63.5 Z"/>
+        <path fill="var(--box-shade, #172013)" fill-rule="evenodd"
+              d="M 90,38 L 50,56 L 50,63.5 L 84.5,48 L 84.5,58.5 L 50,74 L 50,81.5 L 90,63.5 Z"/>
+    </symbol>
+</svg>

@@ -1,35 +1,36 @@
 <main class="login-layout">
     <aside class="login-info">
-        <h2 class="info-title">Welcome Title</h2>
-        <p class="info-text">Welcome Text</p>
+        <h2 class="info-title">Your money, under your control.</h2>
+        <p class="info-text">Manage your accounts, track real-time transactions, and move your money effortlessly with SandBox.</p>
     </aside>
     <section class="login-panel">
         <header class="panel-header">
-            <svg width="50" height="50" viewBox="0 0 50 50">
-                <rect width="50" height="50" fill="black"/>
+            <svg class="logo-sandbox" width="50" height="50" aria-hidden="true">
+                <use href="/assets/logo.svg#sandbox-logo"></use>
             </svg>
-            <h1>Bank Title</h1>
+            <h1>SANDBOX</h1>
         </header>
         <form class="panel-form">
             <header class="form-header">
-                <h2>Login Title</h2>
-                <p>Login Text</p>
+                <h2>Welcome back</h2>
+                <p>Enter your credentials to access your account</p>
             </header>
             <div class="form-input">
-                <label for="input-cpf" >CPF</label>
-                <input type="text" id="input-cpf" name="cpf">
+                <label for="input-cpf">CPF</label>
+                <input type="text" id="input-cpf" name="cpf" placeholder="000.000.000-00" inputmode="numeric" maxlength="14" required>
             </div>
             <div class="form-input">
-                <label for="input-password" >Password</label>
-                <input type="password" id="input-password" name="password">
+                <label for="input-password">Password</label>
+                <input type="password" id="input-password" name="password" placeholder="••••••••" autocomplete="current-password" required>
             </div>
             <div class="form-helper">
+                <!-- TODO: Adicionar tela para troca de senha -->
                 <a href="#">Forgot your password?</a>
             </div>
-            <button id="btn-login" type="submit" data-route="/dashboard">Login</button>
+            <button id="btn-login" class="btn-submit" type="submit" data-route="/dashboard">Sign In</button>
         </form>
         <footer class="panel-footer">
-            <p>Doesnt have an account? <a class="links" data-route="/register">Register</a></p>
+            <p>Don't have an account? <a class="links" data-route="/register">Create one now!</a></p>
         </footer>
     </section>
 </main>
