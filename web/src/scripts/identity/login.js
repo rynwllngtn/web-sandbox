@@ -1,12 +1,6 @@
 import "../../styles/shared.css";
 import "../../styles/identity/login.css";
 
-/*
-Para ser removido
-Único import, pois os links são persistentes entre páginas
- */
-import "../../styles/identity/temp.css";
-
 import {fetchLogin} from "../../api/identityApi.js";
 
 export function init() {

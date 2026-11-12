@@ -1,4 +1,4 @@
-body:has(.login-layout, .register-layout) {
+body:has(.login-layout, .register-layout, .dashboard-layout) {
     background: radial-gradient(
         circle at top left,
         var(--color-sunglow-yellow-50) 0%,
@@ -89,7 +89,8 @@ main:has(.login-panel, .register-panel) {
     }
 }
 
-.panel-header {
+.panel-header,
+.sidebar-header {
     display: flex;
     align-items: center;
     padding: 16px 24px;
