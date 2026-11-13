@@ -1,42 +1,69 @@
-const path = {
-    "/login": {
-        html: "/src/pages/identity/login.html",
-        script: () => import("/src/scripts/identity/login.js"),
-        run: (script) => script.init()
-    },
-    "/register": {
-        html: "/src/pages/identity/register.html",
-        script: () => import("/src/scripts/identity/register.js"),
-        run: (script) => script.init()
-    },
-    "/dashboard": {
-        html: "/src/pages/identity/dashboard.html",
-        script: () => import("/src/scripts/identity/dashboard.js"),
-        run: (script) => script.init()
+class Route {
+    constructor(loadHtml, loadScript) {
+        this.loadHtml = loadHtml;
+        this.loadScript = loadScript;
+    }
+
+    async load() {
+        const htmlPromise = this.loadHtml();
+        const scriptPromise = this.loadScript ? this.loadScript() : null;
+
+        const [htmlModule, script] = await Promise.all([htmlPromise, scriptPromise]);
+        return {
+            html: htmlModule.default,
+            script: script,
+        }
     }
 }
 
-export async function navigateTo(screen, addToHistory = true) {
-    const appIndex = document.getElementById("index");
-    const target = path[screen];
+const routes = {
+    "/login": new Route(
+        () => import("../pages/identity/login.html?raw"),
+        () => import("./identity/login.js")
+    ),
+    "/register": new Route(
+        () => import("../pages/identity/register.html?raw"),
+        () => import("./identity/register.js")
+    ),
+    "/dashboard": new Route(
+        () => import("../pages/identity/dashboard.html?raw"),
+        () => import("./identity/dashboard.js")
+    )
+}
+
+export function initRoute() {
+    if (!routes[window.location.pathname]) {
+        navigateTo("/login", false);
+        window.history.replaceState({}, "", "/login");
+    }
+    else {
+        navigateTo(window.location.pathname, false);
+    }
+}
+
+export async function navigateTo(screen, history = true) {
+    const route = routes[screen];
+    if (!route) {
+        console.error(`Route not found: ${screen}`);
+        return;
+    }
     try {
-        const [response, script] = await Promise.all([
-            fetch(target.html),
-            target.script ? target.script() : Promise.resolve(null)
-        ])
+        const { html, script } = await route.load();
 
-        if (!response.ok) throw new Error("Bruh");
-        appIndex.innerHTML = await response.text();
+        const appIndex = document.getElementById("index");
+        appIndex.innerHTML = html;
 
-        if (addToHistory) {
+        if (history) {
             window.history.pushState({}, "", screen);
         }
 
-        if (script) {
-            target.run(script);
-        }
+        script?.init?.();
     }
     catch (error) {
-        console.log(error);
+        console.error("Error routing to screen:", screen, error);
     }
 }
+
+addEventListener("popstate", () => {
+    navigateTo(window.location.pathname, false);
+})

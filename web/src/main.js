@@ -1,3 +1,3 @@
-import { navigateTo } from "./scripts/router.js";
+import { initRoute } from "./scripts/router.js";
 
-navigateTo("/login");
+initRoute();
