@@ -1,7 +1,8 @@
 import "../../styles/shared.css";
 import "../../styles/identity/register.css";
 
-import {fetchRegister} from "../../api/identityApi.js"
+import { fetchRegister } from "../../api/identityApi.js"
+import { navigateTo } from "../router.js";
 
 export function init() {
     const DOM = {
@@ -23,6 +24,9 @@ export function init() {
             back1: document.getElementById("btn-back-section-1"),
             back2: document.getElementById("btn-back-section-2"),
             submit: document.getElementById("btn-register")
+        },
+        links: {
+            login: document.querySelector(".panel-footer .links")
         }
     }
 
@@ -41,8 +45,15 @@ export function init() {
             email: DOM.inputs.email.value
         }
         const response = await fetchRegister(payload);
-        console.log(response);
+        if (response.ok) {
+            navigateTo("/login");
+        }
     });
+
+    DOM.links.login.addEventListener("click", async (event) => {
+        event.preventDefault();
+        navigateTo("/login");
+    })
 }
 
 

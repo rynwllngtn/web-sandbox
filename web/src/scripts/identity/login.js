@@ -1,7 +1,8 @@
 import "../../styles/shared.css";
 import "../../styles/identity/login.css";
 
-import {fetchLogin} from "../../api/identityApi.js";
+import { fetchLogin } from "../../api/identityApi.js";
+import { navigateTo } from "../router.js";
 
 export function init() {
     const DOM = {
@@ -11,6 +12,9 @@ export function init() {
         },
         buttons: {
             login: document.getElementById("btn-login")
+        },
+        links: {
+            register: document.querySelector(".panel-footer .links")
         }
     }
 
@@ -21,6 +25,14 @@ export function init() {
             password: DOM.inputs.password.value
         }
         const response = await fetchLogin(payload);
-        console.log(response);
+        if (response.ok) {
+            sessionStorage.setItem("tokenAwt", (response.data.tokenAwt));
+            await navigateTo("/dashboard");
+        }
     });
+
+    DOM.links.register.addEventListener("click", async (event) => {
+        event.preventDefault();
+        navigateTo("/register");
+    })
 }

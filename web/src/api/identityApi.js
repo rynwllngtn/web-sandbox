@@ -6,7 +6,12 @@ export async function fetchRegister(payload) {
         },
         body: JSON.stringify(payload)
     })
-    return await response.json();
+    const data = await response.json();
+    return {
+        ok: response.ok,
+        status: response.status,
+        data
+    }
 }
 
 export async function fetchLogin(payload) {
@@ -17,7 +22,12 @@ export async function fetchLogin(payload) {
         },
         body: JSON.stringify(payload)
     })
-    return await response.json();
+    const data = await response.json();
+    return {
+        ok: response.ok,
+        status: response.status,
+        data
+    };
 }
 
 export async function fetchMe(tokenAwt) {
@@ -27,5 +37,10 @@ export async function fetchMe(tokenAwt) {
             "Authorization": "Bearer " + tokenAwt
         }
     })
-    return await response.json();
+    const data = await response.json();
+    return {
+        ok: response.ok,
+        status: response.status,
+        data
+    };
 }
