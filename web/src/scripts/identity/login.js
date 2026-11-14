@@ -2,7 +2,9 @@ import "../../styles/shared.css";
 import "../../styles/identity/login.css";
 
 import { fetchLogin } from "../../api/identityApi.js";
-import { navigateTo } from "../router.js";
+import { routeTo, attachRouterClick } from "../router.js";
+
+import { attachCpfMask, unmaskCpf } from "../utils/cpf.js"
 
 export function init() {
     const DOM = {
@@ -10,29 +12,24 @@ export function init() {
             cpf: document.getElementById("input-cpf"),
             password: document.getElementById("input-password"),
         },
-        buttons: {
-            login: document.getElementById("btn-login")
-        },
-        links: {
-            register: document.querySelector(".panel-footer .links")
-        }
+        form: document.getElementById("form-login"),
+        linkRegister: document.getElementById("link-register")
     }
 
-    DOM.buttons.login.addEventListener("click", async (event) => {
+    attachCpfMask(DOM.inputs.cpf);
+
+    DOM.form.addEventListener("submit", async (event) => {
         event.preventDefault();
         const payload = {
-            cpf: DOM.inputs.cpf.value.replaceAll(/[.-]/g, ''),
+            cpf: unmaskCpf(DOM.inputs.cpf.value),
             password: DOM.inputs.password.value
         }
         const response = await fetchLogin(payload);
         if (response.ok) {
             sessionStorage.setItem("tokenAwt", (response.data.tokenAwt));
-            await navigateTo("/dashboard");
+            routeTo("/dashboard");
         }
     });
 
-    DOM.links.register.addEventListener("click", async (event) => {
-        event.preventDefault();
-        navigateTo("/register");
-    })
+    attachRouterClick(DOM.linkRegister, "/register")
 }

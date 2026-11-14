@@ -33,15 +33,15 @@ const routes = {
 
 export function initRoute() {
     if (!routes[window.location.pathname]) {
-        navigateTo("/login", false);
+        routeTo("/login", false);
         window.history.replaceState({}, "", "/login");
     }
     else {
-        navigateTo(window.location.pathname, false);
+        routeTo(window.location.pathname, false);
     }
 }
 
-export async function navigateTo(screen, history = true) {
+export async function routeTo(screen, history = true) {
     const route = routes[screen];
     if (!route) {
         console.error(`Route not found: ${screen}`);
@@ -64,6 +64,12 @@ export async function navigateTo(screen, history = true) {
     }
 }
 
+export function attachRouterClick(input, path, history) {
+    input.addEventListener("click", () => {
+        routeTo(path, history);
+    })
+}
+
 addEventListener("popstate", () => {
-    navigateTo(window.location.pathname, false);
+    routeTo(window.location.pathname, false);
 })
