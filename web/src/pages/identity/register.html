@@ -6,7 +6,7 @@
             </svg>
             <h1>SANDBOX</h1>
         </header>
-        <form class="panel-form">
+        <form id="form-register" class="panel-form">
             <header class="form-header">
                 <h2>Create your account</h2>
                 <p>Follow the steps below to get started with SandBox</p>
@@ -33,18 +33,18 @@
             <section id="section-1" class="section-step" data-section="1" style="display: flex">
                 <div class="form-input">
                     <label for="cpf">CPF</label>
-                    <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" inputmode="numeric" maxlength="14" required/>
+                    <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" inputmode="numeric" minlength="14" maxlength="14" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required/>
                 </div>
                 <button id="btn-next-section-1" class="btn-primary" type="button">Continue</button>
             </section>
             <section id="section-2" class="section-step" data-section="2">
                 <div class="form-input">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="email@example.com" autocomplete="email" required>
+                    <input type="email" id="email" name="email" placeholder="email@example.com" autocomplete="email" maxlength="120" required>
                 </div>
                 <div class="form-input">
                     <label for="username">Username</label>
-                    <input type="text" id="username" name="username" placeholder="How should we call you?" autocomplete="username" required>
+                    <input type="text" id="username" name="username" placeholder="How should we call you?" autocomplete="username" minlength="3" maxlength="50" required>
                 </div>
                 <div class="form-buttons">
                     <button id="btn-back-section-1" class="btn-secondary" type="button">Back</button>
@@ -54,11 +54,11 @@
             <section id="section-3" class="section-step" data-section="3">
                 <div class="form-input">
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="••••••••" autocomplete="new-password" required>
+                    <input type="password" id="password" name="password" placeholder="••••••••" autocomplete="new-password" minlength="8" maxlength="64" required>
                 </div>
                 <div class="form-input">
                     <label for="password-confirm">Password Confirmation</label>
-                    <input type="password" id="password-confirm" name="password-confirm" placeholder="••••••••" autocomplete="new-password" required>
+                    <input type="password" id="password-confirm" name="password-confirm" placeholder="••••••••" autocomplete="new-password" minlength="8" maxlength="64" required>
                 </div>
                 <div class="form-buttons">
                     <button id="btn-back-section-2" class="btn-secondary" type="button">Back</button>
@@ -67,7 +67,7 @@
             </section>
         </form>
         <footer class="panel-footer">
-            <p>Already have an account? <a class="links" data-route="/login">Sign In</a></p>
+            <p>Already have an account? <a id="link-login" class="links" data-route="/login">Sign In</a></p>
         </footer>
     </section>
     <aside class="register-info">

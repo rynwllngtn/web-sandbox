@@ -10,18 +10,18 @@
             </svg>
             <h1>SANDBOX</h1>
         </header>
-        <form class="panel-form">
+        <form id="form-login" class="panel-form">
             <header class="form-header">
                 <h2>Welcome back</h2>
                 <p>Enter your credentials to access your account</p>
             </header>
             <div class="form-input">
                 <label for="input-cpf">CPF</label>
-                <input type="text" id="input-cpf" name="cpf" placeholder="000.000.000-00" inputmode="numeric" maxlength="14" required>
+                <input type="text" id="input-cpf" name="cpf" placeholder="000.000.000-00" inputmode="numeric" autocomplete="username" minlength="14" maxlength="14" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
             </div>
             <div class="form-input">
                 <label for="input-password">Password</label>
-                <input type="password" id="input-password" name="password" placeholder="••••••••" autocomplete="current-password" required>
+                <input type="password" id="input-password" name="password" placeholder="••••••••" autocomplete="current-password" minlength="8" maxlength="64" required>
             </div>
             <div class="form-helper">
                 <!-- TODO: Adicionar tela para troca de senha -->
@@ -30,7 +30,7 @@
             <button id="btn-login" class="btn-submit" type="submit" data-route="/dashboard">Sign In</button>
         </form>
         <footer class="panel-footer">
-            <p>Don't have an account? <a class="links" data-route="/register">Create one now!</a></p>
+            <p>Don't have an account? <a id="link-register" class="links">Create one now!</a></p>
         </footer>
     </section>
 </main>

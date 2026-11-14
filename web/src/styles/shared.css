@@ -280,6 +280,7 @@ main:has(.login-panel, .register-panel) {
         padding-bottom: 1px;
         margin-left: 4px;
         transition: color 0.15s ease, border-color 0.15s ease;
+        cursor: pointer;
 
         &:hover {
             color: var(--color-sunglow-yellow-800);
