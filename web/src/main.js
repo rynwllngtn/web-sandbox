@@ -1,3 +1,4 @@
-import { initRoute } from "./scripts/router.js";
+import App from "./App.vue";
+import { createApp } from "vue";
 
-initRoute();
+createApp(App).mount("#index");
