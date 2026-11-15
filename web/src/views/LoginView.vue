@@ -4,6 +4,8 @@ import { useRouter } from "vue-router";
 import { fetchLogin} from "../api/identityApi.js";
 import { maskCpf, unmaskCpf } from "../utils/cpf.js";
 
+import SandboxLogo from "../components/SandboxLogo.vue";
+
 const router = useRouter();
 
 const cpf = ref("");
@@ -31,9 +33,7 @@ async function handleLogin() {
     </aside>
     <section class="login-panel">
       <header class="panel-header">
-        <svg class="logo-sandbox" width="50" height="50" aria-hidden="true">
-          <use href="/assets/logo.svg#sandbox-logo"></use>
-        </svg>
+        <SandboxLogo class="logo-sandbox"/>
         <h1>SANDBOX</h1>
       </header>
       <form class="panel-form" @submit.prevent="handleLogin">

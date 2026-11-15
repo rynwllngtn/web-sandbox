@@ -4,6 +4,9 @@ import { useRouter } from "vue-router";
 import { fetchMe } from "../api/identityApi.js";
 import { maskCpf } from "../utils/cpf.js";
 
+import Logo from "../components/SandboxLogo.vue";
+import UserIcon from "../components/UserIcon.vue";
+
 const router = useRouter();
 
 const cpf = ref("");
@@ -25,7 +28,6 @@ onMounted(async () => {
     return;
   }
 
-  console.log(response.data);
   cpf.value = maskCpf(response.data.cpf);
   email.value = response.data.email;
   username.value = response.data.username;
@@ -42,9 +44,7 @@ function handleSignOut() {
   <div class="dashboard-layout">
     <aside class="dashboard-sidebar">
       <header class="sidebar-header">
-        <svg class="logo-sandbox" width="50" height="50" aria-hidden="true">
-          <use href="/assets/logo.svg#sandbox-logo"></use>
-        </svg>
+        <Logo class="logo-sandbox" aria-hidden="true"/>
         <h1>SANDBOX</h1>
       </header>
       <nav class="sidebar-nav">
@@ -63,9 +63,7 @@ function handleSignOut() {
       </div>
       <div class="header-user">
         <p> {{ username }} </p>
-        <svg class="user-icon" width="44" height="44" aria-hidden="true">
-          <use href="/assets/user.svg#user-icon"></use>
-        </svg>
+        <UserIcon class="user-icon" aria-hidden="true"/>
       </div>
     </header>
     <main class="dashboard-content">

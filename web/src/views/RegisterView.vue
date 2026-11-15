@@ -4,6 +4,8 @@ import { useRouter } from "vue-router";
 import { fetchRegister } from "../api/identityApi.js";
 import { maskCpf, unmaskCpf } from "../utils/cpf.js";
 
+import SandboxLogo from "../components/SandboxLogo.vue";
+
 const router = useRouter();
 const formRef = ref(null);
 const section = ref(1);
@@ -43,9 +45,7 @@ async function handleRegister() {
   <main class="register-layout">
     <section class="register-panel">
       <header class="panel-header">
-        <svg class="logo-sandbox" width="50" height="50" aria-hidden="true">
-          <use href="/assets/logo.svg#sandbox-logo"></use>
-        </svg>
+        <SandboxLogo class="logo-sandbox"/>
         <h1>SANDBOX</h1>
       </header>
       <form ref="formRef" class="panel-form" @submit.prevent="handleRegister">
