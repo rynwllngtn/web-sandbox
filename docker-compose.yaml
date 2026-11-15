@@ -1,0 +1,5 @@
+name: sandbox
+
+include:
+  - api/identity/docker-compose.yaml
+  - web/docker-compose.yaml
